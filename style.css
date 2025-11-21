@@ -80,7 +80,80 @@ body{
 /* Window */
 .window{
     position: fixed;
+    top: calc(32px + 16px);
+    left: calc(72px + 16px);
+    right: 16px;
+    bottom: 16px;
     background: rgba(255, 255, 255, 1);
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.window .titlebar{
+    height: 32px;
+    background: rgba(150, 150, 150, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+}
+.window .titlebar .title{
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+.window .titlebar .button{
+    display: flex;
+    align-items: center;
+}
+.window .titlebar .button .close{
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    line-height: 14px;
+    cursor: pointer;
+
+    user-select: none;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 0, 0, 1);
+}
+.window .titlebar .button .close:hover{
+    background: rgba(200, 0, 0, 1);
+}
+.window .tabbar{
+    height: 20px;
+    background: rgba(200, 200, 200, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 0 12px;
+}
+.window .tabbar .tab{
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+    padding: 0 12px;
+}
+.window .tabbar .tab .active{
+    background: rgba(250, 250, 250, 1);
+}
+.window .content{
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
 }
 
 /* Image */
