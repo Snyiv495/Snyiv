@@ -1,3 +1,9 @@
+/*****************
+    スニャイヴ
+    style.css
+    2025/11/25
+*****************/
+
 /* Body */
 body{
     margin: 0;
@@ -14,7 +20,6 @@ body{
     width: 100%;
     height: 32px;
     background: rgba(0, 0, 0, 0.9);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +43,6 @@ body{
     width: 72px;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,30 +54,32 @@ body{
     width: 90%;
     height: calc(72px*0.9);
     border-radius: 12px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.dock .item:hover {
+.dock .item:hover{
     transition: 0.2s;
     border-radius: 12px;
     background-color: rgba(255, 255, 255, 0.3);
 }
-.dock .item .active{
+.dock .item .lamp{
     position: absolute;
     top: calc(50%-4px);
     left: 0px;
     width: 8px;
     height: 8px;
     border-radius: 6px;
+}
+.dock .item .lamp.active{
     background: rgba(255, 0, 0, 1);
 }
 .dock .item .icon{
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
@@ -87,82 +93,106 @@ body{
     background: rgba(255, 255, 255, 1);
     border-radius: 12px;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
-
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 .window .titlebar{
     height: 32px;
-    background: rgba(150, 150, 150, 1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
+    background: rgba(45, 45, 45, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 12px;
+    padding: 0 8px;
 }
 .window .titlebar .title{
+    flex-grow: 0;
+    text-align: left;
     font-size: 14px;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 0.9);
 }
-.window .titlebar .button{
+.window .titlebar .button_container{
     display: flex;
-    align-items: center;
+    gap: 0;
 }
-.window .titlebar .button .close{
-    width: 18px;
-    height: 18px;
-    border-radius: 5px;
-
+.window .titlebar .button_container .button{
+    width: 24px; 
+    height: 24px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 16px;
+    line-height: 1; 
     cursor: pointer;
-
     user-select: none;
-    color: rgba(255, 255, 255, 1);
-    background: rgba(255, 0, 0, 1);
+    transition: background-color 0.2s, color 0.2s;
+    font-family: sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
 }
-.window .titlebar .button .close:hover{
-    background: rgba(200, 0, 0, 1);
+.window .titlebar .button_container .button.close:hover{
+    background: rgba(255, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 1);
 }
 .window .tabbar{
-    height: 20px;
-    background: rgba(200, 200, 200, 1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 32px;
+    background: rgba(220, 220, 220, 1);
+    border-bottom: 1px solid rgba(180, 180, 180, 1);
 
     display: flex;
-    justify-content:space-around;
-    align-items: center;
-    padding: 0 12px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 0 4px;
 }
 .window .tabbar .tab{
     cursor: pointer;
     position: relative;
     font-size: 14px;
-    padding: 0 12px;
+    font-weight: 500;
+    padding: 8px 16px 6px 16px;
+    margin-right: 2px;
+    
+    background: rgba(200, 200, 200, 1);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border: 1px solid rgba(180, 180, 180, 1);
+    border-bottom: none;
+    color: rgba(50, 50, 50, 1);
 }
-.window .tabbar .tab .active{
-    background: rgba(250, 250, 250, 1);
+.window .tabbar .tab:hover{
+    background: rgba(230, 230, 230, 1);
+}
+.window .tabbar .tab.active{
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(180, 180, 180, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    z-index: 1;
 }
 .window .content{
     flex: 1;
     padding: 16px;
     overflow-y: auto;
+    border-top: 1px solid rgba(180, 180, 180, 1); 
+    margin-top: -1px;
 }
 
-/* Image */
-.snyiv_image{
-    background-image: url("./assets/icon/snyiv.png");
+/* Logo */
+.logo_snyiv{
+    background-image: url("/assets/logo/snyiv.svg");
 }
-.github_image{
-    background-image: url("./assets/icon/github.png");
+.logo_pokemon{
+    background-image: url("/assets/logo/pokemon.svg");
 }
-.x_image{
-    background-image: url("./assets/icon/x.png");
+.logo_discord{
+    background-image: url("/assets/logo/discord.svg");
+}
+.logo_github{
+    background-image: url("/assets/logo/github.svg");
+}
+.logo_x{
+    background-image: url("/assets/logo/x.svg");
 }

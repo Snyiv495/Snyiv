@@ -1,49 +1,59 @@
+<!----------------
+    スニャイヴ
+    index.html
+    2025/11/25
+----------------->
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
         <title>スニャイヴログ</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="/style.css">
     </head>
 
     <body>
-        <!-- Top bar -->
         <div class="topbar">
-            <a href="./index.html" target="_self" class="item">　スニャイヴログ　</a>
-            <a href="./index.html" target="_self" class="item">　11月19日　2025：update　</a>
-            <a href="./index.html" target="_self" class="item">⚙️</a>
+            <a href="/index.html" target="_self" class="item">　スニャイヴログ　</a>
+            <a href="/index.html" target="_self" class="item">　11月25日　2025：update　</a>
+            <a href="/index.html" target="_self" class="item">⚙️</a>
         </div>
 
-        <!-- Dock -->
-        <div class="dock">
-            <a href="./index.html" target="_self" class="item">
-                <span class="active"></span>
-                <span class="icon snyiv_image"></span>
-            </a>
-            <a href="https://github.com/Snyiv495" target="_blank" class="item">
-                <span class="icon github_image"></span>
-            </a>
-            <a href="https://x.com/Snyiv495" target="_blank" class="item">
-                <span class="icon x_image"></span>
-            </a>
+        <div id="dock" class="dock">
+            <div id="dock_item_snyiv" class="item" onclick="openApp('snyiv', event)">
+                <span class="lamp"></span>
+                <span class="icon logo_snyiv"></span>
+            </div>
+            <div id="dock_item_pokemon" class="item" onclick="openApp('pokemon', event)">
+                <span class="lamp"></span>
+                <span class="icon logo_pokemon"></span>
+            </div>
+            <div id="dock_item_discord" class="item" onclick="openApp('discord', event)">
+                <span class="lamp"></span>
+                <span class="icon logo_discord"></span>
+            </div>
+            <div id="dock_item_github" class="item" onclick="openApp('github', event)">
+                <span class="lamp"></span>
+                <span class="icon logo_github"></span>
+            </div>
+            <div id="dock_item_x" class="item" onclick="openApp('x', event)">
+                <span class="lamp"></span>
+                <span class="icon logo_x"></span>
+            </div>
         </div>
 
-        <!-- Window -->
-        <div class="window">
-            <div class="titlebar">
-                <span class="title">スニャイヴ</span>
-                <div class="button">
-                    <span class="close">×</span>
+        <div id="window" class="window" style="display: none;">
+            <div id="window_titlebar" class="titlebar">
+                <div id="window_titlebar_title" class="title"></div>
+                <div class="button_container">
+                    <div class="button close" onclick="closeApp()">×</div>
                 </div>
             </div>
-
-            <div class="tabbar">
-                <span class="tab">概要</span>
-                <span class="tab">一言</span>
-            </div>
-
-            <div class="content">
-            </div>
+            <div id="window_tabbar" class="tabbar"></div>
+            <div id="window_content" class="content"></div>
         </div>
+
+        <script src="/js/apps.js"></script>
+        <script src="/js/router.js"></script>
     </body>
 </html>
