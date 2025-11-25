@@ -80,7 +80,7 @@ window.switchTab = async function(tab_id){
     });
 
     const tab_file_url = `/apps/${app.directory}/${tab_file}.html`;
-    content_element.innerHTML = (await fetch(tab_file_url)).text();
+    content_element.innerHTML = await (await fetch(tab_file_url)).text();
 
     return;
 };
